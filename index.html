@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Change | Research Project</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="top-bar">
+        <span>Aariz Khan</span>
+    </div>
+    <section id="hero">
+        <h1 class="display_title">CLIMATE CHANGE</h1>
+        <h2 class="display_subtitle">A Global Crisis... Caused by Humans</h2>
+        <button class="scroll-btn" onclick="scrollToEvidence()">Explore the Evidence</button>
+    </section>
+    
+    <section id="evidence">
+        <div class="evidence-container">
+            <div class="evidence-item">
+                <button class="reveal-btn" onclick="revealEvidence(1)">Evidence #1: Global Temperature Spike</button>
+                <div id="evidence-1" class="evidence-content hidden">
+                    <img src="https://via.placeholder.com/600x400?text=Graph+1+Temperature+Change" alt="Global Temperature Spike Graph">
+                    <div class="text-content">
+                        <p class="observation"><strong>Observation:</strong> Global surface temperatures remained mostly stable until the late 1800s. Since 1970, there has been a rapid and steady climb in temperature. The total increase is now more than 1.0°C above the historical baseline.</p>
+                        <p class="reasoning"><strong>Reasoning:</strong> This rapid increase is an urgent "red flag" because Earth's massive climate system usually changes slowly. Natural forces like volcanic eruptions or orbital shifts cannot explain a 1.1°C jump in just a few decades. This jump occurred around 1970—exactly when global industrialization and car ownership exploded—showing a clear human correlation.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <button class="reveal-btn" onclick="revealEvidence(2)">Evidence #2: Greenhouse Gas Concentrations</button>
+                <div id="evidence-2" class="evidence-content hidden">
+                    <img src="https://via.placeholder.com/600x400?text=Graph+2+2000+Years+of+Gases" alt="Greenhouse Gas Concentrations Graph">
+                    <div class="text-content">
+                        <p class="observation"><strong>Observation:</strong> CO₂, methane, and nitrous oxide were extremely stable for nearly 1,900 years. All three gases show a simultaneous, vertical spike starting in the late 1800s.</p>
+                        <p class="reasoning"><strong>Reasoning:</strong> This proves the atmospheric change is linked to humans. For 2,000 years, natural cycles kept these gases constant. They only began to rise when humans started the Industrial Revolution and burned fossil fuels in the 1800s. Since these specific gases trap heat (the Greenhouse Effect), this spike explains why the temperature is rising now.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="evidence-item">
+                <button class="reveal-btn" onclick="revealEvidence(3)">Evidence #3: Breaking the Natural Cycle</button>
+                <div id="evidence-3" class="evidence-content hidden">
+                    <img src="https://via.placeholder.com/600x400?text=Graph+3+800000+Years+of+CO2" alt="800,000 Years of CO2 Graph">
+                    <div class="text-content">
+                        <p class="observation"><strong>Observation:</strong> For millennia, CO₂ naturally cycled around an average of 300 ppm. The current level has surged to a high of 422.8 ppm, breaking an 800,000-year pattern.</p>
+                        <p class="reasoning"><strong>Reasoning:</strong> This evidence proves the current warming is not a "natural cycle." Looking back almost a million years, nature has a clear limit (300 ppm) that it never passed on its own. Reaching 422.8 ppm in just 150 years confirms that human activity has pushed the atmosphere into a state it hasn't seen in nearly a million years.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="conclusion">
+        <h2>What Happens Next?</h2>
+        <p>The evidence is clear: Human activity has pushed us past natural limits. Now that we know the cause, we have the power to change the trend.</p>
+        <button class="data-btn">View Data Sources</button>
+    </section>
+    
+    <section id="call-to-action">
+        <h2>Call to Action</h2>
+        <p>What can we humans do to help reduce this crisis?</p>
+        <ul>
+            <li>Reduce energy consumption by using public transport, biking, or walking.</li>
+            <li>Switch to renewable energy sources like solar and wind power.</li>
+            <li>Plant trees and support reforestation efforts.</li>
+            <li>Reduce waste and recycle more.</li>
+            <li>Advocate for climate-friendly policies and support sustainable businesses.</li>
+        </ul>
+    </section>
+    
+    <script src="script.js"></script>
+</body>
+</html>
