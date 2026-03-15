@@ -17,7 +17,7 @@ body {
     padding: 20px 50px;
     box-sizing: border-box;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
@@ -25,6 +25,307 @@ body {
     font-family: 'josefin sans', sans-serif;
     text-transform: uppercase;
     letter-spacing: 0.2em;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.logo {
+    font-size: 1.2rem;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.2rem;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 10px;
+    border-radius: 10px;
+    transition: background 0.25s, color 0.25s;
+}
+
+.nav-links a:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    color: white;
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+    font-size: 1.1rem;
+}
+
+.icon-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+.mobile-menu {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    .mobile-menu {
+        display: grid;
+    }
+}
+
+#hero {
+    min-height: calc(100vh - 90px);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 2.8rem;
+    margin: 0;
+}
+
+.section-header p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.evidence-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 22px;
+    padding: 28px;
+    margin-bottom: 40px;
+    backdrop-filter: blur(12px);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.evidence-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card-top h3 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.card-subtitle {
+    margin: 6px 0 0;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1.05rem;
+}
+
+.card-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.primary-btn,
+.secondary-btn {
+    padding: 12px 22px;
+    border-radius: 999px;
+    font-weight: 700;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.primary-btn {
+    background: rgba(255, 255, 255, 0.18);
+    color: white;
+}
+
+.primary-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-1px);
+}
+
+.secondary-btn {
+    background: rgba(0, 0, 0, 0.3);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.secondary-btn:hover {
+    background: rgba(0, 0, 0, 0.45);
+    transform: translateY(-1px);
+}
+
+.card-details {
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.modal-content {
+    position: relative;
+    width: min(920px, 92%);
+    background: rgba(10, 10, 10, 0.92);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    z-index: 1;
+}
+
+.modal-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1.6rem;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.modal-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.modal-cta {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.scroll-top {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 1.5rem;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s, visibility 0.25s;
+    z-index: 1500;
+}
+
+.scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Light theme (toggle via script) */
+body.light-theme {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url("https://images.unsplash.com/photo-1463947628408-f8581a2f4aca?auto=format&fit=crop&q=80&w=1920");
+    color: #0b1d2a;
+}
+
+body.light-theme .top-bar {
+    background: rgba(255, 255, 255, 0.7);
+    color: #0b1d2a;
+}
+
+body.light-theme .top-bar a {
+    color: rgba(11, 29, 42, 0.9);
+}
+
+body.light-theme .nav-links a:hover {
+    background: rgba(11, 29, 42, 0.1);
+    color: rgba(11, 29, 42, 1);
+}
+
+body.light-theme .evidence-card,
+body.light-theme .modal-content {
+    background: rgba(255, 255, 255, 0.9);
+    color: #0b1d2a;
+}
+
+body.light-theme .primary-btn {
+    background: rgba(11, 29, 42, 0.12);
+    color: #0b1d2a;
+}
+
+body.light-theme .secondary-btn {
+    background: rgba(11, 29, 42, 0.14);
+    color: #0b1d2a;
+}
+
+body.light-theme .scroll-top {
+    background: rgba(11, 29, 42, 0.2);
+    color: #fff;
+}
+
+.hidden {
+    display: none;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    transform: translateY(20px);
+    pointer-events: none;
 }
 
 #hero {
@@ -67,12 +368,12 @@ body {
 
 .scroll-btn {
     margin-top: 40px;
-    padding: 15px 30px;
+    padding: 25px 60px;
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.3);
     color: white;
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     cursor: pointer;
     border-radius: 5px;
     transition: background 0.3s;
@@ -95,15 +396,18 @@ body {
 
 .evidence-item {
     margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .reveal-btn {
-    padding: 15px 30px;
+    padding: 20px 50px;
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.3);
     color: white;
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     cursor: pointer;
     border-radius: 5px;
     transition: background 0.3s;
@@ -119,6 +423,15 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    max-height: 2000px;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .evidence-content img {
@@ -138,7 +451,15 @@ body {
 }
 
 .hidden {
-    display: none;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    transform: translateY(20px);
+    pointer-events: none;
 }
 
 #conclusion {
@@ -165,12 +486,12 @@ body {
 }
 
 .data-btn {
-    padding: 15px 30px;
+    padding: 20px 50px;
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.3);
     color: white;
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     cursor: pointer;
     border-radius: 5px;
     transition: background 0.3s;

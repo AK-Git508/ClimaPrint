@@ -10,70 +10,122 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="top-bar">
-        <span>Aariz Khan</span>
-    </div>
+    <header class="top-bar">
+        <div class="brand">
+            <span class="logo">🌍 ClimatePulse | Aariz Khan</span>
+        </div>
+        <nav class="nav-links" id="navLinks">
+            <a href="#hero">Home</a>
+            <a href="#evidence">Evidence</a>
+            <a href="#conclusion">Next</a>
+            <a href="#call-to-action">Act</a>
+        </nav>
+        <div class="actions">
+            <button class="icon-btn" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button>
+            <button class="icon-btn mobile-menu" onclick="toggleMobileNav()" aria-label="Open menu">☰</button>
+        </div>
+    </header>
+
     <section id="hero">
         <h1 class="display_title">CLIMATE CHANGE</h1>
         <h2 class="display_subtitle">A Global Crisis... Caused by Humans</h2>
         <button class="scroll-btn" onclick="scrollToEvidence()">Explore the Evidence</button>
     </section>
-    
+
     <section id="evidence">
+        <div class="section-header">
+            <h2>Evidence Revealer</h2>
+            <p>Click each item to view the full graph and dive into the data.</p>
+        </div>
+
         <div class="evidence-container">
-            <div class="evidence-item">
-                <button class="reveal-btn" onclick="revealEvidence(1)">Evidence #1: Global Temperature Spike</button>
-                <div id="evidence-1" class="evidence-content hidden">
-                    <img src="https://via.placeholder.com/600x400?text=Graph+1+Temperature+Change" alt="Global Temperature Spike Graph">
-                    <div class="text-content">
-                        <p class="observation"><strong>Observation:</strong> Global surface temperatures remained mostly stable until the late 1800s. Since 1970, there has been a rapid and steady climb in temperature. The total increase is now more than 1.0°C above the historical baseline.</p>
-                        <p class="reasoning"><strong>Reasoning:</strong> This rapid increase is an urgent "red flag" because Earth's massive climate system usually changes slowly. Natural forces like volcanic eruptions or orbital shifts cannot explain a 1.1°C jump in just a few decades. This jump occurred around 1970—exactly when global industrialization and car ownership exploded—showing a clear human correlation.</p>
+            <div class="evidence-card" id="card-1">
+                <div class="card-top">
+                    <div>
+                        <h3>Evidence #1: Global Temperature Spike</h3>
+                        <p class="card-subtitle">Modern fever: a rapid climb that began in 1970.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="primary-btn" onclick="openGraphModal(1)">View Graph</button>
+                        <button class="secondary-btn" onclick="toggleDetails(1)">Details</button>
                     </div>
                 </div>
-            </div>
-            
-            <div class="evidence-item">
-                <button class="reveal-btn" onclick="revealEvidence(2)">Evidence #2: Greenhouse Gas Concentrations</button>
-                <div id="evidence-2" class="evidence-content hidden">
-                    <img src="https://via.placeholder.com/600x400?text=Graph+2+2000+Years+of+Gases" alt="Greenhouse Gas Concentrations Graph">
-                    <div class="text-content">
-                        <p class="observation"><strong>Observation:</strong> CO₂, methane, and nitrous oxide were extremely stable for nearly 1,900 years. All three gases show a simultaneous, vertical spike starting in the late 1800s.</p>
-                        <p class="reasoning"><strong>Reasoning:</strong> This proves the atmospheric change is linked to humans. For 2,000 years, natural cycles kept these gases constant. They only began to rise when humans started the Industrial Revolution and burned fossil fuels in the 1800s. Since these specific gases trap heat (the Greenhouse Effect), this spike explains why the temperature is rising now.</p>
-                    </div>
+                <div class="card-details hidden" id="details-1">
+                    <p class="observation"><strong>Observation:</strong> Global surface temperatures remained mostly stable until the late 1800s. Since 1970, there has been a rapid and steady climb in temperature. The total increase is now more than 1.0°C above the historical baseline.</p>
+                    <p class="reasoning"><strong>Reasoning:</strong> This rapid increase is an urgent "red flag" because Earth's massive climate system usually changes slowly. Natural forces like volcanic eruptions or orbital shifts cannot explain a 1.1°C jump in just a few decades. This jump occurred around 1970—exactly when global industrialization and car ownership exploded—showing a clear human correlation.</p>
                 </div>
             </div>
-            
-            <div class="evidence-item">
-                <button class="reveal-btn" onclick="revealEvidence(3)">Evidence #3: Breaking the Natural Cycle</button>
-                <div id="evidence-3" class="evidence-content hidden">
-                    <img src="https://via.placeholder.com/600x400?text=Graph+3+800000+Years+of+CO2" alt="800,000 Years of CO2 Graph">
-                    <div class="text-content">
-                        <p class="observation"><strong>Observation:</strong> For millennia, CO₂ naturally cycled around an average of 300 ppm. The current level has surged to a high of 422.8 ppm, breaking an 800,000-year pattern.</p>
-                        <p class="reasoning"><strong>Reasoning:</strong> This evidence proves the current warming is not a "natural cycle." Looking back almost a million years, nature has a clear limit (300 ppm) that it never passed on its own. Reaching 422.8 ppm in just 150 years confirms that human activity has pushed the atmosphere into a state it hasn't seen in nearly a million years.</p>
+
+            <div class="evidence-card" id="card-2">
+                <div class="card-top">
+                    <div>
+                        <h3>Evidence #2: Greenhouse Gas Concentrations</h3>
+                        <p class="card-subtitle">The chemical culprits: CO₂, methane, and nitrous oxide rising together.</p>
                     </div>
+                    <div class="card-actions">
+                        <button class="primary-btn" onclick="openGraphModal(2)">View Graph</button>
+                        <button class="secondary-btn" onclick="toggleDetails(2)">Details</button>
+                    </div>
+                </div>
+                <div class="card-details hidden" id="details-2">
+                    <p class="observation"><strong>Observation:</strong> CO₂, methane, and nitrous oxide were extremely stable for nearly 1,900 years. All three gases show a simultaneous, vertical spike starting in the late 1800s.</p>
+                    <p class="reasoning"><strong>Reasoning:</strong> This proves the atmospheric change is linked to humans. For 2,000 years, natural cycles kept these gases constant. They only began to rise when humans started the Industrial Revolution and burned fossil fuels in the 1800s. Since these specific gases trap heat (the Greenhouse Effect), this spike explains why the temperature is rising now.</p>
+                </div>
+            </div>
+
+            <div class="evidence-card" id="card-3">
+                <div class="card-top">
+                    <div>
+                        <h3>Evidence #3: Breaking the Natural Cycle</h3>
+                        <p class="card-subtitle">800,000 years of stability ends in a sharp rise.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="primary-btn" onclick="openGraphModal(3)">View Graph</button>
+                        <button class="secondary-btn" onclick="toggleDetails(3)">Details</button>
+                    </div>
+                </div>
+                <div class="card-details hidden" id="details-3">
+                    <p class="observation"><strong>Observation:</strong> For millennia, CO₂ naturally cycled around an average of 300 ppm. The current level has surged to a high of 422.8 ppm, breaking an 800,000-year pattern.</p>
+                    <p class="reasoning"><strong>Reasoning:</strong> This evidence proves the current warming is not a "natural cycle." Looking back almost a million years, nature has a clear limit (300 ppm) that it never passed on its own. Reaching 422.8 ppm in just 150 years confirms that human activity has pushed the atmosphere into a state it hasn't seen in nearly a million year.</p>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <section id="conclusion">
         <h2>What Happens Next?</h2>
         <p>The evidence is clear: Human activity has pushed us past natural limits. Now that we know the cause, we have the power to change the trend.</p>
-        <button class="data-btn">View Data Sources</button>
+        <button class="data-btn" onclick="openSources()">View Data Sources</button>
     </section>
-    
+
     <section id="call-to-action">
         <h2>Call to Action</h2>
         <p>What can we humans do to help reduce this crisis?</p>
         <ul>
-            <li>Reduce energy consumption by using public transport, biking, or walking.</li>
-            <li>Switch to renewable energy sources like solar and wind power.</li>
-            <li>Plant trees and support reforestation efforts.</li>
-            <li>Reduce waste and recycle more.</li>
-            <li>Advocate for climate-friendly policies and support sustainable businesses.</li>
+            <li> -- Reduce energy consumption by using public transport, biking, or walking.</li>
+            <li> -- Switch to renewable energy sources like solar and wind power.</li>
+            <li> -- Plant trees and support reforestation efforts.</li>
+            <li> -- Reduce waste and recycle more.</li>
+            <li> -- Advocate for climate-friendly policies and support sustainable businesses.</li>
         </ul>
     </section>
-    
+
+    <div id="graphModal" class="modal hidden">
+        <div class="modal-backdrop" onclick="closeModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
+            <h3 id="modalTitle">Graph</h3>
+            <img id="modalImage" src="" alt="">
+            <p id="modalCaption"></p>
+            <div class="modal-cta">
+                <button class="secondary-btn" onclick="downloadGraph()">Download</button>
+                <button class="secondary-btn" onclick="shareGraph()">Share</button>
+            </div>
+        </div>
+    </div>
+
+    <button id="scrollTopBtn" class="scroll-top" onclick="scrollToTop()" aria-label="Scroll to top">↑</button>
+
     <script src="script.js"></script>
 </body>
 </html>

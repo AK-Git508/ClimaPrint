@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Change | Research Project</title>
+    <link rel="stylesheet" href="main_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="top-bar">
+        <span>Aariz Khan</span>
+    </div>
+    <div id="hero">
+        <h1 class="display_title">CLIMATE CHANGE</h1>
+        <h2 class="display_subtitle">A Global Crisis... Caused by Humans</h2>
+        <button class="scroll-btn" onclick="scrollToEvidence()">Explore the Evidence</button>
+    </div>
+
+    <div id="evidence">
+        <!-- Evidence 1: Temperature -->
+        <div class="evidence-item">
+            <button class="reveal-btn" onclick="revealEvidence(1)">Global Temperature Rise</button>
+            <div id="evidence-1" class="evidence-content hidden">
+                <img src="https://images.unsplash.com/photo-1532601224476-15c79f2f7a5c?auto=format&fit=crop&w=800&q=80" alt="Temperature Graph">
+                <div class="text-content">
+                    <p><strong>The Data:</strong> The planet's average surface temperature has risen about 2 degrees Fahrenheit since the late 19th century, a change driven largely by increased carbon dioxide emissions.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evidence 2: Warming Oceans -->
+        <div class="evidence-item">
+            <button class="reveal-btn" onclick="revealEvidence(2)">Warming Oceans</button>
+            <div id="evidence-2" class="evidence-content hidden">
+                <img src="https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?auto=format&fit=crop&w=800&q=80" alt="Ocean Graph">
+                <div class="text-content">
+                    <p><strong>The Data:</strong> The ocean has absorbed much of this increased heat, with the top 100 meters of ocean showing warming of more than 0.6 degrees Fahrenheit since 1969.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evidence 3: Ice Sheets -->
+        <div class="evidence-item">
+            <button class="reveal-btn" onclick="revealEvidence(3)">Shrinking Ice Sheets</button>
+            <div id="evidence-3" class="evidence-content hidden">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="Ice Sheet Graph">
+                <div class="text-content">
+                    <p><strong>The Data:</strong> The Greenland and Antarctic ice sheets have decreased in mass. Greenland lost an average of 279 billion tons of ice per year between 1993 and 2019.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
