@@ -98,7 +98,7 @@ function openSources() {
         'Mauna Loa CO₂ Measurements',
     ];
     const list = sources.map(s => `• ${s}`).join('\n');
-    confirmation = window.open(`Data Sources:\n\n${list}`, '_blank');
+    prompt(`Data Sources:\n\n${list}`, '_blank');
 }
 
 function downloadGraph() {
