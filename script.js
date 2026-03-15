@@ -45,7 +45,10 @@ function openGraphModal(id) {
 
 function closeModal() {
     modal.classList.add('hidden');
-    document.body.style.overflow = '';
+    // Only restore scroll if the sources modal is also closed.
+    if (!document.getElementById('sources-modal')) {
+        document.body.style.overflow = '';
+    }
 }
 
 function toggleDetails(id) {
@@ -90,15 +93,57 @@ function updateScrollButton() {
     }
 }
 
+function closeSourcesModal() {
+    const sourcesModal = document.getElementById('sources-modal');
+    if (sourcesModal) {
+        sourcesModal.remove();
+        // Only restore scroll if the graph modal is also closed.
+        if (modal.classList.contains('hidden')) {
+            document.body.style.overflow = '';
+        }
+    }
+}
+
 function openSources() {
+    if (document.getElementById('sources-modal')) return;
+
     const sources = [
         'NASA GISS Surface Temperature Analysis',
         'NOAA Global Climate Report',
         'IPCC Assessment Reports',
         'Mauna Loa CO₂ Measurements',
     ];
-    const list = sources.map(s => `• ${s}`).join('\n');
-    prompt(`Data Sources:\n\n${list}`, '_blank');
+
+    const modalContainer = document.createElement('div');
+    modalContainer.id = 'sources-modal';
+    modalContainer.className = 'modal-overlay'; // Assumes styling for overlay
+    modalContainer.onclick = (e) => {
+        if (e.target === modalContainer) closeSourcesModal();
+    };
+
+    const contentBox = document.createElement('div');
+    contentBox.className = 'modal-content'; // Assumes styling for content box
+
+    const title = document.createElement('h2');
+    title.textContent = 'Data Sources';
+
+    const closeButton = document.createElement('button');
+    closeButton.innerHTML = '&times;';
+    closeButton.className = 'modal-close'; // Assumes styling for close button
+    closeButton.setAttribute('aria-label', 'Close');
+    closeButton.onclick = closeSourcesModal;
+
+    const list = document.createElement('ul');
+    sources.forEach(sourceText => {
+        const item = document.createElement('li');
+        item.textContent = sourceText;
+        list.appendChild(item);
+    });
+
+    contentBox.append(closeButton, title, list);
+    modalContainer.appendChild(contentBox);
+    document.body.appendChild(modalContainer);
+    document.body.style.overflow = 'hidden';
 }
 
 function downloadGraph() {
@@ -132,7 +177,10 @@ function shareGraph() {
 
 window.addEventListener('scroll', updateScrollButton);
 window.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') closeModal();
+    if (event.key === 'Escape') {
+        closeModal();
+        closeSourcesModal();
+    }
 });
 
 applyStoredTheme();
