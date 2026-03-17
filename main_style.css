@@ -63,6 +63,18 @@ body {
     margin-top: 10px;
 }
 
+.nig {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    font-family: roboto, josefin sans, sans-serif;
+    font-weight: 400;
+    text-align: center;
+    color: oklch(100% 0.00011 271.152);
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    letter-spacing: -0.01em;
+    padding: 0 40px;
+    margin-top: 10px;
+}
+
 .scroll-btn {
     margin-top: 40px;
     padding: 25px 60px;
