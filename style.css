@@ -737,3 +737,200 @@ body.light-theme .correct-item.incorrect {
     font-size: 1.2rem;
     line-height: 1.6;
 }
+
+/* ========== LIVE IMPACT COUNTER SECTION ========== */
+
+#live-counter {
+    position: relative;
+    padding: 90px 20px;
+    background: #080808;
+    text-align: center;
+    overflow: hidden;
+    z-index: 0;
+}
+
+/* Animated heat-shimmer gradient background */
+.counter-bg-shimmer {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 90% 70% at 15% 50%, rgba(180, 30, 5, 0.18) 0%, transparent 55%),
+        radial-gradient(ellipse 70% 90% at 85% 40%, rgba(220, 90, 0, 0.14) 0%, transparent 55%),
+        radial-gradient(ellipse 110% 50% at 50% 110%, rgba(255, 150, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 60% at 50% 0%, rgba(150, 20, 0, 0.1) 0%, transparent 60%);
+    animation: heatShimmer 9s ease-in-out infinite alternate;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes heatShimmer {
+    0% {
+        opacity: 0.55;
+        transform: scale(1) translateY(0px);
+    }
+    25% {
+        opacity: 0.9;
+        transform: scale(1.04) translateY(-6px);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(0.97) translateY(4px);
+    }
+    75% {
+        opacity: 1;
+        transform: scale(1.06) translateY(-3px);
+    }
+    100% {
+        opacity: 0.65;
+        transform: scale(1.01) translateY(2px);
+    }
+}
+
+.counter-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.counter-tagline-top {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(1.1rem, 2.8vw, 1.7rem);
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 155, 55, 0.92);
+    margin: 0 0 55px;
+    text-shadow: 0 0 22px rgba(255, 110, 25, 0.55), 0 0 50px rgba(255, 70, 10, 0.25);
+}
+
+.counter-tagline-bottom {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(0.95rem, 2.2vw, 1.3rem);
+    font-weight: 300;
+    letter-spacing: 0.06em;
+    color: rgba(255, 195, 90, 0.65);
+    margin: 52px 0 0;
+    font-style: italic;
+}
+
+/* Counter grid — 3 columns desktop, 1 column mobile */
+.counter-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+@media (max-width: 860px) {
+    .counter-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Individual counter card */
+.counter-card {
+    background: linear-gradient(145deg, rgba(28, 7, 3, 0.88), rgba(12, 4, 1, 0.94));
+    border: 1px solid rgba(190, 55, 15, 0.28);
+    border-radius: 22px;
+    padding: 40px 22px 36px;
+    transition: transform 0.32s ease, box-shadow 0.32s ease, border-color 0.32s ease;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle inner top-glow */
+.counter-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 100, 30, 0.4), transparent);
+    pointer-events: none;
+}
+
+/* Hover: scale up + warm glow shadow */
+.counter-card:hover {
+    transform: scale(1.045) translateY(-5px);
+    box-shadow:
+        0 22px 55px rgba(190, 45, 5, 0.38),
+        0 0 32px rgba(255, 90, 20, 0.18),
+        inset 0 1px 0 rgba(255, 130, 50, 0.25);
+    border-color: rgba(255, 95, 25, 0.62);
+}
+
+.counter-label {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 155, 70, 0.82);
+    margin-bottom: 22px;
+    line-height: 1.5;
+}
+
+.counter-number-wrap {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* Large animated number */
+.counter-number {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.025em;
+    line-height: 1;
+    animation: numberGlowPulse 2.4s ease-in-out infinite;
+    display: inline-block;
+    word-break: break-all;
+}
+
+@keyframes numberGlowPulse {
+    0%, 100% {
+        text-shadow:
+            0 0 8px rgba(255, 130, 45, 0.75),
+            0 0 22px rgba(255, 85, 18, 0.45),
+            0 0 45px rgba(255, 55, 8, 0.25);
+    }
+    50% {
+        text-shadow:
+            0 0 14px rgba(255, 165, 70, 1),
+            0 0 35px rgba(255, 110, 30, 0.65),
+            0 0 70px rgba(255, 70, 12, 0.4);
+    }
+}
+
+.counter-unit {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+    font-weight: 400;
+    color: rgba(255, 155, 70, 0.68);
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+}
+
+/* Keep dark/fire feel in light theme — intentional contrast */
+body.light-theme #live-counter {
+    background: #0c0704;
+}
+
+body.light-theme .counter-tagline-top,
+body.light-theme .counter-tagline-bottom,
+body.light-theme .counter-label,
+body.light-theme .counter-number,
+body.light-theme .counter-unit {
+    /* Preserve fire color palette regardless of theme */
+    color: inherit;
+}

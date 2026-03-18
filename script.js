@@ -295,3 +295,66 @@ function displayResults(correctCount, results) {
 function resetActivity() {
     shuffleCards();
 }
+
+// ========== LIVE GLOBAL IMPACT COUNTER ==========
+(function initImpactCounter() {
+    // Per-second emission rates
+    var CO2_RATE    = 2.5;       // tons / second
+    var FOREST_RATE = 0.3;       // hectares / second
+    var TEMP_RATE   = 0.000005;  // °C / second (visible slow drift)
+
+    // Seconds elapsed since local midnight (gives today's accumulated baseline)
+    function secondsSinceMidnight() {
+        var now = new Date();
+        return now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds() + now.getMilliseconds() / 1000;
+    }
+
+    // Seconds elapsed since Jan 1 of current year (for temperature anomaly baseline)
+    function secondsSinceJan1() {
+        var now = new Date();
+        var jan1 = new Date(now.getFullYear(), 0, 1);
+        return (now.getTime() - jan1.getTime()) / 1000;
+    }
+
+    var sinceDay  = secondsSinceMidnight();
+    var sinceYear = secondsSinceJan1();
+
+    // Baseline values already accumulated before page load
+    var baseCO2    = sinceDay  * CO2_RATE;
+    var baseForest = sinceDay  * FOREST_RATE;
+    var baseTemp   = 1.35 + sinceYear * TEMP_RATE; // current anomaly ≈ +1.35°C, drifting upward
+
+    var elCO2    = document.getElementById('num-co2');
+    var elForest = document.getElementById('num-forest');
+    var elTemp   = document.getElementById('num-temp');
+
+    // Bail out cleanly if elements are missing
+    if (!elCO2 || !elForest || !elTemp) return;
+
+    var startTimestamp = null;
+
+    function formatInteger(n) {
+        return Math.floor(n).toLocaleString('en-US');
+    }
+
+    function formatOneDecimal(n) {
+        return n.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+    }
+
+    function formatTemp(n) {
+        return '+' + n.toFixed(6);
+    }
+
+    function tick(timestamp) {
+        if (startTimestamp === null) startTimestamp = timestamp;
+        var elapsed = (timestamp - startTimestamp) / 1000; // seconds since page mounted
+
+        elCO2.textContent    = formatInteger(baseCO2    + elapsed * CO2_RATE);
+        elForest.textContent = formatOneDecimal(baseForest + elapsed * FOREST_RATE);
+        elTemp.textContent   = formatTemp(baseTemp      + elapsed * TEMP_RATE);
+
+        requestAnimationFrame(tick);
+    }
+
+    requestAnimationFrame(tick);
+})();
